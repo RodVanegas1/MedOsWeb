@@ -631,7 +631,7 @@ body.menu-open .mobileMenu{display:block}
 <section id="ia"><div class="wrap split"><div class="panel reveal"><div class="kicker">Asistencia inteligente</div><h3>IA como apoyo. El criterio sigue siendo del profesional.</h3><p>MedOS está preparado para utilizar información clínica contextualizada y generar observaciones, tendencias y apoyo durante el seguimiento, sin sustituir el criterio médico.</p><div class="actions" style="margin-top:23px"><a class="btn primary" href="/app">Probar MedOS</a></div></div><div class="panel reveal"><div class="kicker">Contexto clínico</div><h3>Más que síntomas aislados.</h3><p>La visión de MedOS es conectar edad, sexo, antecedentes, signos vitales, consultas anteriores, diagnósticos y evolución para ofrecer información más útil al profesional.</p></div></div></section>
 <section><div class="wrap"><div class="head reveal"><div class="kicker">Para cada práctica</div><h2>Una base flexible para diferentes especialidades.</h2><p>MedOS está pensado para crecer con profesionales de distintas áreas de la salud y adaptar el contexto de trabajo a sus necesidades.</p></div><div class="grid"><article class="card reveal"><div class="icon">+</div><h3>Medicina general</h3><p>Seguimiento, consultas, diagnósticos y documentación en un solo flujo.</p></article><article class="card reveal"><div class="icon">⌁</div><h3>Psicología y psiquiatría</h3><p>Historial de consultas y notas longitudinales para conservar el contexto de cada sesión.</p></article><article class="card reveal"><div class="icon">◈</div><h3>Especialidades</h3><p>Arquitectura preparada para diferentes áreas y catálogos profesionales.</p></article></div></div></section>
 <section id="pwa"><div class="wrap"><div class="head reveal"><div class="kicker">Llévalo contigo</div><h2>Instala MedOS como una aplicación.</h2><p>MedOS puede utilizarse como PWA desde computadoras y teléfonos compatibles.</p></div><div class="tutorial reveal"><div><h3>¿Cómo instalar MedOS?</h3><p style="color:var(--muted);margin-top:8px;line-height:1.6">Mira el tutorial paso a paso para agregar MedOS a tu dispositivo como una aplicación.</p></div><button class="play" onclick="openTutorial()">▶</button></div></div></section>
-<section id="precios"><div class="wrap"><div class="head reveal" style="text-align:center;margin:auto auto 42px"><div class="kicker">Planes</div><h2>Crece a tu ritmo.</h2><p>Referencia visual del modelo comercial. La contratación se habilitará durante el lanzamiento.</p></div><div class="pricing reveal"><div class="kicker">Profesional</div><div class="price"><strong><span class="currency">$</span><span class="countup" data-target="60">0</span></strong><span class="priceUnit">por médico / mes</span></div><p style="color:var(--muted);line-height:1.6">Una referencia del modelo de licencia. Los planes definitivos se publicarán al lanzamiento.</p><div class="features"><div>Expediente clínico</div><div>Consultas</div><div>Agenda</div><div>Recetas</div><div>Incapacidades</div><div>Evolución</div></div><a class="btn primary" href="mailto:soporte@medos.local">Hablar con MedOS</a></div></div></section>
+<section id="precios"><div class="wrap"><div class="head reveal" style="text-align:center;margin:auto auto 42px"><div class="kicker">Planes</div><h2>Crece a tu ritmo.</h2><p>Referencia visual del modelo comercial. La contratación se habilitará durante el lanzamiento.</p></div><div class="pricing reveal"><div class="kicker">Profesional</div><div class="price"><strong><span class="currency">$</span><span class="countup" data-target="60">60</span></strong><span class="priceUnit">por médico / mes</span></div><p style="color:var(--muted);line-height:1.6">Una referencia del modelo de licencia. Los planes definitivos se publicarán al lanzamiento.</p><div class="features"><div>Expediente clínico</div><div>Consultas</div><div>Agenda</div><div>Recetas</div><div>Incapacidades</div><div>Evolución</div></div><a class="btn primary" href="mailto:soporte@medos.local">Hablar con MedOS</a></div></div></section>
 <section id="faq"><div class="wrap"><div class="head reveal"><div class="kicker">Soporte</div><h2>¿Tienes preguntas?</h2><p>Estamos preparando una experiencia de soporte integrada.</p></div><div class="faq reveal"><details><summary>¿Qué es MedOS?</summary><p>Una plataforma orientada a profesionales de la salud para organizar pacientes, consultas, historial, agenda y documentación.</p></details><details><summary>¿Puedo usarlo desde el teléfono?</summary><p>Sí. Está diseñado para ser responsive y puede instalarse como PWA en dispositivos compatibles.</p></details><details><summary>¿La IA reemplaza al médico?</summary><p>No. Las herramientas inteligentes son apoyo y no sustituyen el criterio, diagnóstico ni decisión de un profesional.</p></details><details><summary>¿Cómo contacto al equipo?</summary><p>Escríbenos a <a href="mailto:soporte@medos.local" style="text-decoration:underline">soporte@medos.local</a>. Es un correo temporal que podrás cambiar después.</p></details></div></div></section>
 </main>
 <footer><div class="wrap foot"><div><a class="brand" href="#inicio"><span class="mark">✚</span>MedOS</a><p style="margin-top:13px;max-width:360px;line-height:1.6">Tecnología para una práctica médica más conectada, organizada e inteligente.</p></div><div><h4>MedOS</h4><div class="footlinks"><a href="#plataforma">Plataforma</a><a href="#funciones">Funciones</a><a href="#ia">IA</a><a href="#precios">Planes</a></div></div><div><h4>Ayuda</h4><div class="footlinks"><a href="#faq">FAQ</a><a href="mailto:soporte@medos.local">Soporte</a><a href="/app">Ir a MedOS ↗</a></div></div></div><div class="wrap copy">© 2026 MedOS. Todos los derechos reservados.</div></footer>
@@ -724,5 +724,50 @@ function closeTutorial(){
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow='';
 }
-document.addEventListener('keydown',e=>e.key==='Escape'&&closeTutorial());</script>
+document.addEventListener('keydown',e=>e.key==='Escape'&&closeTutorial());
+// ===== Animated pricing counter =====
+const priceCounter = document.querySelector('.countup[data-target]');
+if (priceCounter) {
+  const target = Number(priceCounter.dataset.target) || 60;
+  let started = false;
+
+  const runPriceCounter = () => {
+    if (started) return;
+    started = true;
+
+    const duration = 1100;
+    const start = performance.now();
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      // Smooth ease-out: quick start, gentle finish.
+      const eased = 1 - Math.pow(1 - progress, 3);
+      priceCounter.textContent = String(Math.round(target * eased));
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        priceCounter.textContent = String(target);
+      }
+    };
+
+    requestAnimationFrame(tick);
+  };
+
+  const priceSection = document.querySelector('#precios');
+  if ('IntersectionObserver' in window && priceSection) {
+    const priceObserver = new IntersectionObserver((entries, observer) => {
+      if (entries.some(entry => entry.isIntersecting)) {
+        runPriceCounter();
+        observer.disconnect();
+      }
+    }, { threshold: 0.25 });
+
+    priceObserver.observe(priceSection);
+  } else {
+    runPriceCounter();
+  }
+}
+
+</script>
 </body></html>
